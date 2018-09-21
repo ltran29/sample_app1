@@ -1,0 +1,83 @@
+
+
+%div#things
+  %h1.class.otherclass#id Haml Tutorials
+  %span#rice Chicken Fried
+  %p.beans{ :food => 'true' } The magical fruit
+
+/ Class and ID: . and #
+%p.haml-title I. Class and ID: . and #
+%div#content
+  %div.articles
+    %div.article.title Doogie Howser Comes Out
+    %div.article.date 2006-11-05
+    %div.article.entry
+      Neil Patrick Harris would like to dispel any rumors that he is straight
+
+%br/
+
+/ Implicit Div Elements
+%p.haml-title II. Implicit Div Elements
+#collection
+  .item
+    .description What a cool item!
+
+%br/
+/ Whitespace Removal: > and <
+%p.haml-title III. Whitespace Removal: > and <
+%blockqupte<
+  %div
+    Foo!
+    %p<= "Foo Bar"
+
+%br/
+/ Inserting Ruby: =
+%p.haml-title IV. Inserting Ruby
+%p
+  = ['hi', 'there', 'reader!'].join " "
+  = "yo"
+
+%br/
+/ Running Ruby: -
+%p.haml-title V. Running Ruby: -
+- foo = "hello"
+- foo << " there"
+- foo << " Learner!"
+%p= foo
+
+%br/
+/ Ruby blocks
+%p.haml-title VI. Ruby blocks
+- (42...47).each do |i|
+  %p= i
+%p See, I can count!
+
+%br/
+/ Escaping HTML: &=
+%p.haml-title VII. Escaping HTML: &=
+&= "I like cheese & crackers"
+%p & can also be used on its own so that #{} interpolation is escaped. For example,
+& I like #{"cheese & crackers"}
+
+%br/
+%br/
+/ Haml button demo
+%p.haml-title VIII. Haml button demo
+%input#input-btn{:type => "Submit"}
+  %a.btn
+    %i.icon-search.icon-white
+
+:javascript
+  $("#input-btn").click(function() {
+    alert(
+      "Handle click event on HAML"
+    );
+  });
+
+%br/
+/ Unescaping HTML: !=
+%p.haml-title IX. Unescaping HTML: !=
+= "I feel <strong>!"
+!= "I feel <strong>!"
+%p ! can also be used on its own so that #{} interpolation is unescaped. For example,
+! I feel #{"<strong>"}!
